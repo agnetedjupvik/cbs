@@ -127,6 +127,22 @@ namespace Web.Controllers
             return dataOwners.Select(x => x.Name).ToArray();
         }
 
+        // GET api/TestData/region
+        [HttpGet("Regions")]
+        public ActionResult<IEnumerable<string>> GenerateRegions()
+        {
+            var caseReports = JsonConvert.DeserializeObject<Regions[]>(System.IO.File.ReadAllText("TestData/mockAPI/testdata.json"));
+
+            foreach (var caseReport in caseReports)
+            {
+                var dbRegionEntry = new Region(caseReport.Region);
+
+                _mongoDbHandler.Insert(dbRegionEntry);
+            }
+
+            return caseReports.Select(x => x.Region).ToArray();
+        }
+
         // GET api/TestData/{dataowner}
         [HttpGet("guid")]
         public string FetchTestDataOwner()
