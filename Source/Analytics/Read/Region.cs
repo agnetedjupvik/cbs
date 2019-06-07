@@ -9,11 +9,15 @@ namespace Read
 {
     public class Region : BaseReadModel
     {
-        public Region(string name)
+        public Region(string name, int num)
         {
             Name = name;
+            NumberOfCaseReports = 0;
         }
-
         public string Name { get; set; }
+
+        public int NumberOfCaseReports { get; set; }
+        public List<District> Districts { get; set; }
+
     }
 }

@@ -30,7 +30,7 @@ namespace Read.Models.CaseReports.PerRegion
             var region = healthRisk.Regions.FirstOrDefault(x => x.Name == regionName);
 
             if (region == null)
-                healthRisk.Regions.Add(new Region { Name = regionName, NumberOfCaseReports = count });
+                healthRisk.Regions.Add(new Region(regionName, count)); //TODO: Figure out why this had to change
             else
                 region.NumberOfCaseReports += count;
         }

@@ -131,12 +131,12 @@ namespace Web.Controllers
         [HttpGet("Regions")]
         public ActionResult<IEnumerable<string>> GenerateRegions()
         {
-            var caseReports = JsonConvert.DeserializeObject<CaseHeiReport[]>(System.IO.File.ReadAllText("TestData/mockAPI/testdata.json"));
+            var caseReports = JsonConvert.DeserializeObject<CaseReport[]>(System.IO.File.ReadAllText("TestData/mockAPI/testdata.json"));
 
             foreach (var caseReport in caseReports.Select(x => x.Region).Distinct())
             {
                 var dbRegionEntry = new Region(caseReport, 0);
-                                
+
                 _mongoDbHandler.Insert(dbRegionEntry);   
             }
 
