@@ -131,7 +131,7 @@ namespace Web.Controllers
         [HttpGet("Regions")]
         public ActionResult<IEnumerable<string>> GenerateRegions()
         {
-            var caseReports = JsonConvert.DeserializeObject<Regions[]>(System.IO.File.ReadAllText("TestData/mockAPI/testdata.json"));
+            var caseReports = JsonConvert.DeserializeObject<Region[]>(System.IO.File.ReadAllText("TestData/mockAPI/testdata.json"));
 
             foreach (var caseReport in caseReports)
             {
@@ -140,7 +140,7 @@ namespace Web.Controllers
                 _mongoDbHandler.Insert(dbRegionEntry);
             }
 
-            return caseReports.Select(x => x.Region).ToArray();
+            return caseReports.Select(x => x.village).ToArray();
         }
 
         // GET api/TestData/{dataowner}
