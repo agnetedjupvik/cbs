@@ -5,9 +5,9 @@ import {
     Heading,
     Button,
     Spinner,
-    Alert,
-    Text
 } from "evergreen-ui";
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 import { DatePicker } from "./DatePicker";
 import { PresenceIndicator } from "./PresenceIndicator";
 import Map from "./Map.js";
@@ -82,11 +82,11 @@ class ProjectPresence extends Component {
                     <Heading paddingBottom="20px" size={600} display={"inline"}>
                         {`Project Presence`}
                     </Heading>
-                    <Text size={600} paddingLeft={"10px"}>
+                    <Typography size={600}>
                         {`from ${formatDate(
                             fromOrDefault(this.props.range.from)
                         )} to ${formatDate(toOrDefault(this.props.range.to))}`}
-                    </Text>
+                    </Typography>
                 </div>
                 <Button
                     iconBefore="calendar"
@@ -136,12 +136,15 @@ class ProjectPresence extends Component {
                         className="analytics--loadingContainer"
                         style={{ height: "264px" }}
                     >
-                        <Alert
-                            intent="danger"
-                            title="We could not the reach the backend"
-                        >
-                            {`Url: ${this.url}`}
-                        </Alert>
+                        <Paper>
+                            <div style={{display: "flex", padding: 5}}>
+                                    <div style={{padding: 10}}><i class="fa fa-exclamation-triangle"></i></div>
+                                    <div>
+                                        <Typography variant="button" style={{color: "#9f0000"}}>We could not the reach the backend.</Typography>
+                                        <Typography>{`Url: ${this.url}`}</Typography>
+                                    </div>
+                            </div>       
+                        </Paper>
                         <Button
                             marginTop={"20px"}
                             iconBefore="repeat"
@@ -163,7 +166,7 @@ class ProjectPresence extends Component {
         
         return (
             <>
-                {header}
+                {header}                
                 <Heading size={800} marginTop={20}>Project Presence</Heading>
 
                 <div className="analytics--headerPanelContainer" style={headerPanelContainerStyle}>
