@@ -80,7 +80,7 @@ class ProjectPresence extends Component {
             <div className="analytics--header">
                 <div>
                     <Heading paddingBottom="20px" size={600} display={"inline"}>
-                        {`Overview`}
+                        {`Project Presence`}
                     </Heading>
                     <Text size={600} paddingLeft={"10px"}>
                         {`from ${formatDate(

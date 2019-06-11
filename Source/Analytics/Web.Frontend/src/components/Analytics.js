@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import Map from "./Map.js";
 import Diagram from "./Diagram.js";
+import Typography from '@material-ui/core/Typography';
+
 import CaseReportByHealthRiskTable from "./healthRisk/CaseReportByHealthRiskTable";
 import HealthRiskPerDistrictTable from "./healthRisk/HealthRiskPerDistrictTable.js";
 import ProjectPresence from "./ProjectPresence.js";
+import CBSNavigation from './Navigation/CBSNavigation';
+
 
 export const BASE_URL = process.env.API_BASE_URL;
 
@@ -14,11 +18,18 @@ class Analytics extends Component {
     render() {
         return (
             <div className="analytics--container">
-                <HealthRiskPerDistrictTable />
-                <CaseReportByHealthRiskTable />
-                <AnalyticsBanner />
-                <Map />
+                <CBSNavigation />
+                <Typography component="h1" variant="headline" gutterBottom>
+                    Country Overview
+                </Typography>
+
                 <ProjectPresence />
+
+                <CaseReportByHealthRiskTable />
+                <HealthRiskPerDistrictTable />
+                
+                <Map />
+                
 
                 <Diagram
                     selectedSeries={["Total"]}

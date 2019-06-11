@@ -19,8 +19,7 @@ ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
             <div>
-                {/* <Route path="/analytics/" exact component={Analytics} />  */}
-                <Route path="/analytics/" exact component={NationalSocietyOverview} />
+                <Route path="/analytics/" exact component={Analytics} />
             </div>
         </BrowserRouter>
     </Provider>,
