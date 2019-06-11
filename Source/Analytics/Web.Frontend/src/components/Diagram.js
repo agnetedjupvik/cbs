@@ -107,7 +107,9 @@ class Diagram extends Component {
     render() {
         var options = {
             ...defaultOptions,
-            title: { text: this.props.title(this.state.value) },
+            title: { 
+                text: this.props.title(this.state.value),
+            },
             series: this.state.series,
             xAxis: this.state.xAxis,
             chart: {
@@ -116,10 +118,10 @@ class Diagram extends Component {
                 }
             },
             tooltip: { fontFamily: 'Roboto'},
-            title: {
-                align: 'left',
-                variant: 'h6'
-            }
+            legend: {
+                align: 'right',
+                verticalAlign: 'top',
+           }
         };
 
         
@@ -154,7 +156,9 @@ class Diagram extends Component {
             <>
                 <Paper>
                     <div style={{padding: 10}}>
-                    <div style={{display: "flex", alignItems: "center"}}>
+                    
+                    <HighchartsReact highcharts={Highcharts} options={options} />
+                    <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
                         <Typography>Day</Typography>
                         <Switch 
                             value={this.state.value}
@@ -163,7 +167,6 @@ class Diagram extends Component {
                         />
                         <Typography>Week</Typography>
                     </div>
-                    <HighchartsReact highcharts={Highcharts} options={options} />
                     </div>
                 </Paper>
             </>
@@ -175,7 +178,7 @@ Diagram.defaultProps = {
     selectedSeries: ["Total"],
     hasDatePicker: true,
     defaultRange: "Day",
-    title: range => `Epicurve by ${range}`
+    title: "range => `Epicurve by ${range}`"
 };
 
 function mapStateToProps(state) {
