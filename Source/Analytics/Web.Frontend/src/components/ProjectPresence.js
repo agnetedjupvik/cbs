@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import {
-    Heading,
-    Button,
-    Spinner,
-} from "evergreen-ui";
+
+import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { DatePicker } from "./DatePicker";
@@ -76,53 +74,15 @@ class ProjectPresence extends Component {
     }
 
     render() {
-        const header = (
-            <div className="analytics--header">
-                <div>
-                    <Heading paddingBottom="20px" size={600} display={"inline"}>
-                        {`Project Presence`}
-                    </Heading>
-                    <Typography size={600}>
-                        {`from ${formatDate(
-                            fromOrDefault(this.props.range.from)
-                        )} to ${formatDate(toOrDefault(this.props.range.to))}`}
-                    </Typography>
-                </div>
-                <Button
-                    iconBefore="calendar"
-                    onClick={() =>
-                        this.setState({
-                            showDatePicker: !this.state.showDatePicker
-                        })
-                    }
-                >
-                    Choose date
-                </Button>
-                {this.state.showDatePicker && (
-                    <DatePicker
-                        numberOfReports={2}
-                        onRangeSelected={range => {
-                            this.setState({
-                                ...range,
-                                showDatePicker: false
-                            });
-
-                            this.props.updateRange("Day", range);
-                        }}
-                    />
-                )}
-            </div>
-        );
-
         if (this.state.isLoading) {
             return (
                 <>
-                    {header}
+                    <Typography variant="h2">Project Presence</Typography>    
                     <div
                         className="analytics--loadingContainer"
                         style={{ height: "264px" }}
                     >
-                        <Spinner />
+                        <CircularProgress />
                     </div>
                 </>
             );
@@ -131,27 +91,27 @@ class ProjectPresence extends Component {
         if (this.state.isError) {
             return (
                 <>
-                    {header}
+                    <Typography variant="h2">Project Presence</Typography>    
                     <div
                         className="analytics--loadingContainer"
                         style={{ height: "264px" }}
                     >
                         <Paper>
                             <div style={{display: "flex", padding: 5}}>
-                                    <div style={{padding: 10}}><i class="fa fa-exclamation-triangle"></i></div>
+                                <div style={{padding: 10}}><i class="fa fa-exclamation-triangle"></i></div>
                                     <div>
-                                        <Typography variant="button" style={{color: "#9f0000"}}>We could not the reach the backend.</Typography>
+                                        <Typography variant="h6" style={{color: "#9f0000"}}>We could not the reach the backend.</Typography>
                                         <Typography>{`Url: ${this.url}`}</Typography>
-                                    </div>
-                            </div>       
+                                        <Button
+                                            variant="contained"
+                                            onClick={() => this.fetchData()}
+                                            style={{marginTop: 10, marginBottom: 10}}
+                                        >
+                                            Retry
+                                        </Button>
+                                    </div>     
+                                </div>      
                         </Paper>
-                        <Button
-                            marginTop={"20px"}
-                            iconBefore="repeat"
-                            onClick={() => this.fetchData()}
-                        >
-                            Retry
-                        </Button>
                     </div>
                 </>
             );
@@ -166,9 +126,7 @@ class ProjectPresence extends Component {
         
         return (
             <>
-                {header}                
-                <Heading size={800} marginTop={20}>Project Presence</Heading>
-
+                <Typography variant="h2" onClick={() => this.fetchData()}>Project Presence</Typography>                   
                 <div className="analytics--headerPanelContainer" style={headerPanelContainerStyle}>
                     <PresenceIndicator 
                         headline={`${this.state.caseReports.totalNumberOfReports} Reports`}
