@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import { DatePicker } from "./DatePicker";
 import { PresenceIndicator } from "./PresenceIndicator";
 import Map from "./Map.js";
 import { updateRange } from "../actions/analysisactions";
@@ -74,10 +73,14 @@ class ProjectPresence extends Component {
     }
 
     render() {
+        const header = (
+            <Typography variant="h5" onClick={() => this.fetchData()}>Project Presence</Typography>
+        )
+        
         if (this.state.isLoading) {
             return (
                 <>
-                    <Typography variant="h2">Project Presence</Typography>    
+                    {header}   
                     <div
                         className="analytics--loadingContainer"
                         style={{ height: "264px" }}
@@ -91,7 +94,7 @@ class ProjectPresence extends Component {
         if (this.state.isError) {
             return (
                 <>
-                    <Typography variant="h2">Project Presence</Typography>    
+                    {header}  
                     <div
                         className="analytics--loadingContainer"
                         style={{ height: "264px" }}
@@ -121,32 +124,33 @@ class ProjectPresence extends Component {
             display: 'flex',
             flexWrap: 'wrap',
             marginTop: 10,
-            marginBottom: 10
+            marginBottom: 10,
         };
         
         return (
             <>
-                <Typography variant="h2" onClick={() => this.fetchData()}>Project Presence</Typography>                   
-                <div className="analytics--headerPanelContainer" style={headerPanelContainerStyle}>
-                    <PresenceIndicator 
-                        headline={`${this.state.caseReports.totalNumberOfReports} Reports`}
-                        list={this.state.caseReports.reportedHealthRisks}
-                        color="#9f0000"
-                        icon="fa-heartbeat"
-                    />
-                    
-                    <PresenceIndicator 
-                        headline={`${this.state.dataCollectors.activeDataCollectors} Active Data Collectors`}
-                        list={[{name:"Inactive Data Collectors", inactiveDataCollectors: this.state.dataCollectors.inactiveDataCollectors}]}
-                        color="#009f00"
-                        icon="fa-user"
-                    />
-                    
-                    <div>
-                        <Map />
+                <Paper>
+                    <div style={{marginLeft: 10, paddingTop: 10}}>
+                        {header}      
+                        <div className="analytics--headerPanelContainer" style={headerPanelContainerStyle}>
+                            <PresenceIndicator 
+                                headline={`${this.state.caseReports.totalNumberOfReports} Reports`}
+                                list={this.state.caseReports.reportedHealthRisks}
+                                color="#9f0000"
+                                icon="fa-heartbeat"
+                            />
+                            
+                            <PresenceIndicator 
+                                headline={`${this.state.dataCollectors.activeDataCollectors} Active Data Collectors`}
+                                list={[{name:"Inactive Data Collectors", inactiveDataCollectors: this.state.dataCollectors.inactiveDataCollectors}]}
+                                color="#009f00"
+                                icon="fa-user"
+                            />
+                            
+                            <Map />
+                        </div>
                     </div>
-
-                </div>
+                </Paper>
             </>
         );
     }
