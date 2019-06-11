@@ -81,29 +81,28 @@ class HealthRiskPerDistrictTable extends Component {
     render() {
         return (
             <div style={{marginBottom: 20}}>
-                
                 <Paper>
-                <div style={{marginLeft: 10, paddingTop: 10}}>
-                    <Typography variant="h5">No. of cases per health risk and district for last 7 days</Typography>
-                    <Table>
-                    <TableHead>
-                        <TableRow>
-                        <TableCell></TableCell>
-                        {this.state.healthRisks.map(healthRisk => (<TableCell key={healthRisk.name} align="right">{healthRisk.name}</TableCell>))}
-                        </TableRow>
-                    </TableHead> 
-                    <TableBody>
-                        {this.createRows(this.state.healthRisks).map(row => (
-                            <TableRow key={row}>
-                                <TableCell align="left">{row.shift()}</TableCell>{/* Special treatment of region name column */}
-                                {row.map((numCases, index) => (
-                                    <TableCell key={`${row}${index}`} align="right" style={numCases === 0 ? {color: "#B5B5B5"} : {}}>{numCases}</TableCell>
-                                ))}     
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                    </Table>
-                </div>
+                    <div style={{marginLeft: 10, paddingTop: 10}}>
+                        <Typography variant="h5">No. of cases per health risk and district for last 7 days</Typography>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                <TableCell></TableCell>
+                                {this.state.healthRisks.map(healthRisk => (<TableCell key={healthRisk.name} align="right">{healthRisk.name}</TableCell>))}
+                                </TableRow>
+                            </TableHead> 
+                            <TableBody>
+                                {this.createRows(this.state.healthRisks).map(row => (
+                                    <TableRow key={row}>
+                                        <TableCell align="left">{row.shift()}</TableCell>{/* Special treatment of region name column */}
+                                        {row.map((numCases, index) => (
+                                            <TableCell key={`${row}${index}`} align="right" style={numCases === 0 ? {color: "#B5B5B5"} : {}}>{numCases}</TableCell>
+                                        ))}     
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div>
                 </Paper>
             </div>
         );

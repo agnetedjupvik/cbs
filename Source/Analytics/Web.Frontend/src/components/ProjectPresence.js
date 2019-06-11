@@ -131,7 +131,6 @@ class ProjectPresence extends Component {
             <>
                 <Paper>
                     <div style={{marginLeft: 10, paddingTop: 10}}>
-                        {header}      
                         <div className="analytics--headerPanelContainer" style={headerPanelContainerStyle}>
                             <PresenceIndicator 
                                 headline={`${this.state.caseReports.totalNumberOfReports} Reports`}
