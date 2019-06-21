@@ -1,5 +1,7 @@
 using System.Linq;
 using MongoDB.Driver;
+using Dolittle.ReadModels;
+
 
 namespace Read
 {
@@ -25,7 +27,7 @@ namespace Read
         /**
          * Gets a queryable for a collection associated with a specific object type
         */
-        public IQueryable<T> GetQueryable<T>() where T : BaseReadModel
+        public IQueryable<T> GetQueryable<T>() where T : IReadModel
         {
             var collection = _mongoDatabase.GetCollection<T>(typeof(T).Name);
             return collection.AsQueryable();
@@ -34,7 +36,7 @@ namespace Read
         /**
          * Adds generic object to database into collection named as typeof the object
          */
-        public void Insert<T>(T record) where T : BaseReadModel
+        public void Insert<T>(T record) where T : IReadModel
         {
             var collection = _mongoDatabase.GetCollection<T>(typeof(T).Name);
             collection.InsertOneAsync(record);
@@ -43,7 +45,7 @@ namespace Read
         /*
          * Provides ability to update a database element T with a given ObjectID
          */
-        public void Update<T>(T record) where T : BaseReadModel
+        public void Update<T>(T record) where T : IReadModel
         {
             //Get collection associated with this object
             var collection = _mongoDatabase.GetCollection<T>(typeof(T).Name);

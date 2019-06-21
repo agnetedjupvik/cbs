@@ -1,10 +1,11 @@
 using System;
+using Dolittle.ReadModels;
 
 namespace Read.CaseReports
 {       
-    public class CaseReport : BaseReadModel
+    public class CaseReport : IReadModel
     {
-        public Guid CaseReportId { get; set; }
+        public Guid Id { get; set; }
         public Guid DataCollectorId { get; set; }
         public Guid HealthRisk { get; set; }
         public string Origin { get; set; }
@@ -22,7 +23,7 @@ namespace Read.CaseReports
             int numberOfFemalesUnder5, int numberOfFemalesAged5AndOlder, double longitude,
             double latitude, DateTimeOffset timestamp)
         {
-            CaseReportId = caseReportId;
+            Id = caseReportId;
             DataCollectorId = dataCollectorId;
             HealthRisk = healthRisk;
             Origin = origin;

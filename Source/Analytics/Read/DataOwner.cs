@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Dolittle.ReadModels;
+
 
 namespace Read
 {
-    public class DataOwner : BaseReadModel
+    public class DataOwner : IReadModel
     {
         public DataOwner(Guid dataOwnerId, string name, double longitude, double latitude, List<Guid> dataCollectors)
         {

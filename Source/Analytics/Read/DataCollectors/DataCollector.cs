@@ -1,10 +1,12 @@
 using System;
+using Dolittle.ReadModels;
+
 
 namespace Read.DataCollectors
 {
-    public class DataCollector : BaseReadModel
+    public class DataCollector : IReadModel
     {
-        public Guid DataCollectorId { get; set; }
+        public Guid Id { get; set; }
         public string FullName { get; set; }
         public string DisplayName { get; set; }
         public int YearOfBirth { get; set; }
@@ -19,7 +21,7 @@ namespace Read.DataCollectors
         public DataCollector(
            Guid dataCollectorId)
         {
-            DataCollectorId = dataCollectorId;
+            Id = dataCollectorId;
         }
 
         public DataCollector(
@@ -35,7 +37,7 @@ namespace Read.DataCollectors
             string region,
             string district)
         {
-            DataCollectorId = dataCollectorId;
+            Id = dataCollectorId;
             FullName = fullName;
             DisplayName = displayName;
             YearOfBirth = yearOfBirth;
