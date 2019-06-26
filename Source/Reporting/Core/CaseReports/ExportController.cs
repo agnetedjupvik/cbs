@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+// using Microsoft.AspNetCore.Mvc;
 using Read.Reporting.CaseReportsForListing;
 using System.Threading.Tasks;
 using System.IO;
@@ -17,6 +17,7 @@ using Dolittle.DependencyInversion;
 
 namespace Core.CaseReports
 {
+    /* 
     [Route("case-reports/export")]
     public class CaseReportsController : Controller
     {
@@ -128,4 +129,5 @@ namespace Core.CaseReports
             }
         }
     }
+    */
 }

@@ -11,7 +11,7 @@ namespace Core
         {
             var instrumentationKey = Environment.GetEnvironmentVariable("ASPNETCORE_APPINSIGHTS_INSTRUMENTATIONKEY");
 
-            if (!String.IsNullOrEmpty(instrumentationKey))
+            /* if (!String.IsNullOrEmpty(instrumentationKey))
             {
                 builder.ConfigureLogging(_ => {
                     _.AddApplicationInsights(instrumentationKey);
@@ -19,7 +19,7 @@ namespace Core
                     _.AddFilter<ApplicationInsightsLoggerProvider>("Reporting.Startup", LogLevel.Trace);
                 });
             }
-            
+            */
             return builder;
         }
     }

@@ -28,18 +28,6 @@
     "readModels": {},
     "queries": {}
   },
-  "8d70e0c0-3b4b-42fb-b41e-5d842540a617": {
-    "commands": {},
-    "events": {
-      "bb5762fb-ae90-4082-a347-8f6fa268bb48": {
-        "generation": 1,
-        "type": "Events.HealthRisk.HealthRiskCreated, Events"
-      }
-    },
-    "eventSources": {},
-    "readModels": {},
-    "queries": {}
-  },
   "ae0b5c75-8064-40bf-be98-42ab3ee096a7": {
     "commands": {},
     "events": {
@@ -55,7 +43,7 @@
   "38f3cc13-8f20-4d85-8a91-ec804c7c0050": {
     "commands": {},
     "events": {
-      "32d95b06-16bd-4069-b500-8d3de4712262": {
+      "51b2c376-ce2b-4d49-a86c-e654e50248c9": {
         "generation": 1,
         "type": "Events.HealthRisk.HealthRiskCreated, Events"
       }

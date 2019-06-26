@@ -62,7 +62,7 @@ namespace Core
                     {
                         options.Cookie.HttpOnly = false;
                         options.Cookie.SameSite = SameSiteMode.None;
-                        options.DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo(".cookies"));
+                        // options.DataProtectionProvider = DataProtectionProvider.Create(new DirectoryInfo(".cookies"));
                     })
                     .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
                     {

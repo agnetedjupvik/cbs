@@ -54,7 +54,7 @@ namespace Core
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                // app.UseDeveloperExceptionPage();
                 app.UseSwagger(c =>
                 {
                     c.PreSerializeFilters.Add((doc, req) =>
