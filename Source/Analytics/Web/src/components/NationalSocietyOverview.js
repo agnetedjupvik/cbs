@@ -44,8 +44,10 @@ class NationalSocietyOverview extends Component {
     fetchHealthRisks() {
         this.queryCoordinator = new QueryCoordinator();
         let healthRisks = new GetHealthRisks();
+        console.log(healthRisks);
 
         this.queryCoordinator.execute(healthRisks).then(queryResult => {
+            console.log(queryResult);
             if(queryResult.success){
                 this.setState({ healthRisks: queryResult.items})
             }
@@ -87,7 +89,7 @@ class NationalSocietyOverview extends Component {
 
     componentDidMount() {
         this.fetchData();
-        //this.fetchHealthRisks();
+        this.fetchHealthRisks();
         
         appInsights.trackPageView({ name: 'National society overview'});
     }
