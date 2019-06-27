@@ -12,7 +12,7 @@ import { formatDate } from "../utils/dateUtils";
 import HealthRiskPerDistrictBarCharts from "./healthRisk/HealthRiskPerDistrictBarCharts";
 import Map from "./Map.js";
 import CBSNavigation from './Navigation/CBSNavigation';
-import { GetHealthRisks } from "../../Features/HealthRisk/GetHealthRisks";
+import { AllHealthRisks } from "../../Features/HealthRisk/AllHealthRisks";
 import { QueryCoordinator } from "@dolittle/queries";
 
 const appInsights = new ApplicationInsights({
@@ -29,6 +29,7 @@ export const BASE_URL = process.env.API_BASE_URL;
 class NationalSocietyOverview extends Component {
     constructor(props) {
         super(props);
+        this.queryCoordinator = new QueryCoordinator();
 
         this.state = {
             totalFemale: "-",
@@ -42,8 +43,8 @@ class NationalSocietyOverview extends Component {
     }
 
     fetchHealthRisks() {
-        this.queryCoordinator = new QueryCoordinator();
-        let healthRisks = new GetHealthRisks();
+        
+        let healthRisks = new AllHealthRisks();
         console.log(healthRisks);
 
         this.queryCoordinator.execute(healthRisks).then(queryResult => {
