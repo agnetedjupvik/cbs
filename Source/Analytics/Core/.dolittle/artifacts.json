@@ -61,7 +61,7 @@
     "readModels": {
       "111ed52f-9a13-4c41-ba02-cbf8087d59df": {
         "generation": 1,
-        "type": "Read.HealthRisks.HealthRiskName, Read"
+        "type": "Read.HealthRisks.HealthRisk, Read"
       }
     },
     "queries": {}
@@ -71,21 +71,12 @@
     "events": {},
     "eventSources": {},
     "readModels": {
-      "9656c624-948d-47fa-b9b1-75fd613b79f6": {
-        "generation": 1,
-        "type": "Read.Overview.Map.Outbreak, Read"
-      },
       "aecba0f7-55e3-49f1-a468-fbb894441765": {
         "generation": 1,
         "type": "Read.Overview.Map.CaseReportsBeforeDay, Read"
       }
     },
-    "queries": {
-      "0fcac988-0a8f-4033-9d3c-8c9053790738": {
-        "generation": 1,
-        "type": "Read.Overview.Map.OneOutbreakQuery, Read"
-      }
-    }
+    "queries": {}
   },
   "d6878b29-f1fe-45bc-93ee-2ea89e650df8": {
     "commands": {},
