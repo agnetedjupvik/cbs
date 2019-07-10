@@ -29,7 +29,7 @@ namespace Read.Overview.Map
             var LocationForCaseReport = new Location(@event.Latitude, @event.Longitude);
             var healthRiskId = @event.HealthRiskId;
 
-            var dayOfCaseReport = Day.Of(@event.Timestamp);
+            var dayOfCaseReport = Day.From(@event.Timestamp);
             var timeLimit7Days  = dayOfCaseReport + 7;
             var timeLimit30Days = dayOfCaseReport + 30;  
 
