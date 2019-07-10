@@ -9,7 +9,7 @@ export class RegionWithHealthRisk extends ReadModel
     constructor() {
         super();
         this.artifact = {
-           id: '1613bdd9-d11c-4efe-b6eb-b60e94d6e23e',
+           id: '14e02536-5128-493e-a854-001ff491d7f5',
            generation: '1'
         };
     }

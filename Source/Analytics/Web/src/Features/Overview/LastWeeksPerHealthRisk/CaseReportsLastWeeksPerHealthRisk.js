@@ -9,7 +9,7 @@ export class CaseReportsLastWeeksPerHealthRisk extends ReadModel
     constructor() {
         super();
         this.artifact = {
-           id: 'e3e5a1f7-d56a-4d1f-b840-33b41d91f327',
+           id: 'c4b75c39-2112-4539-8516-6e4f43f06daf',
            generation: '1'
         };
         this.id = 0;

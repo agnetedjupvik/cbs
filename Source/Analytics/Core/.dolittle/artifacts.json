@@ -1,36 +1,31 @@
 {
-  "082b543a-e61b-4dea-b261-1396475b40b7": {
+  "8d70e0c0-3b4b-42fb-b41e-5d842540a617": {
     "commands": {},
-    "events": {},
-    "eventSources": {},
-    "readModels": {
-      "893b09bd-5d69-4a05-bc2a-420ba95cd169": {
+    "events": {
+      "51b2c376-ce2b-4d49-a86c-e654e50248c9": {
         "generation": 1,
-        "type": "Read.CaseReports.CaseReport, Read"
+        "type": "Events.Admin.HealthRisks.HealthRiskCreated, Events.Admin"
       },
-      "2045add7-bc9d-4abb-85d1-c2b23e20d920": {
+      "ab9f13e6-f68b-4683-96fe-13434fd34516": {
         "generation": 1,
-        "type": "Read.CaseReports.HealthRisksInRegionsLast7Days, Read"
-      },
-      "01499494-3a94-4333-9e63-f5c63d10c59f": {
-        "generation": 1,
-        "type": "Read.CaseReports.CaseReportsPerRegionLast7Days, Read"
-      },
-      "1613bdd9-d11c-4efe-b6eb-b60e94d6e23e": {
-        "generation": 1,
-        "type": "Read.CaseReports.RegionWithHealthRisk, Read"
+        "type": "Events.Admin.HealthRisks.HealthRiskModified, Events.Admin"
       }
     },
-    "queries": {
-      "70347653-3d3b-4ce5-b502-1aeef0d1690a": {
+    "eventSources": {},
+    "readModels": {},
+    "queries": {}
+  },
+  "9101938c-5654-4c19-a2e8-368e7ff24c63": {
+    "commands": {},
+    "events": {
+      "2eb99b56-376a-41ab-960e-76df3663268d": {
         "generation": 1,
-        "type": "Read.CaseReports.AllCaseReports, Read"
-      },
-      "15822f97-c898-4697-997b-1a4eebf7abd9": {
-        "generation": 1,
-        "type": "Read.CaseReports.GetCaseReportsPerRegionLast7Days, Read"
+        "type": "Events.Reporting.DataCollectors.DataCollectorRegistered, Events.Reporting"
       }
-    }
+    },
+    "eventSources": {},
+    "readModels": {},
+    "queries": {}
   },
   "a2e90e05-4967-49e9-94e2-7eabaf411ca8": {
     "commands": {},
@@ -44,10 +39,41 @@
     "readModels": {},
     "queries": {}
   },
-  "ae0b5c75-8064-40bf-be98-42ab3ee096a7": {
+  "fdd4047a-f854-4c9b-ac4c-c758a841919b": {
     "commands": {},
-    "events": {
-      "899f24ac-860d-4dae-ae90-938ac12e5226": {
+    "events": {},
+    "eventSources": {},
+    "readModels": {
+      "5780fab1-7cb2-487e-bb5f-1c9accc89f6a": {
+        "generation": 1,
+        "type": "Read.Overview.Map.CaseReportsBeforeDay, Read"
+      }
+    },
+    "queries": {}
+  },
+  "89efeec2-cf75-4d9f-94ed-5ae11e56dd43": {
+    "commands": {},
+    "events": {},
+    "eventSources": {},
+    "readModels": {
+      "5d581009-cbe5-40e6-8405-7810f7beb86a": {
+        "generation": 1,
+        "type": "Read.Overview.LastWeekTotals.CaseReportTotals, Read"
+      }
+    },
+    "queries": {
+      "9ad67584-45ef-491c-8efd-fa48007e34cf": {
+        "generation": 1,
+        "type": "Read.Overview.LastWeekTotals.CaseReportTotalsQuery, Read"
+      }
+    }
+  },
+  "e6f1af39-6694-4c50-8809-cdd3fdd03494": {
+    "commands": {},
+    "events": {},
+    "eventSources": {},
+    "readModels": {
+      "c4b75c39-2112-4539-8516-6e4f43f06daf": {
         "generation": 1,
         "type": "Read.Overview.LastWeeksPerHealthRisk.CaseReportsLastWeeksPerHealthRisk, Read"
       }
@@ -59,21 +85,9 @@
     "events": {},
     "eventSources": {},
     "readModels": {
-      "111ed52f-9a13-4c41-ba02-cbf8087d59df": {
+      "069c4993-431e-402b-9868-4660586261cf": {
         "generation": 1,
         "type": "Read.HealthRisks.HealthRisk, Read"
-      }
-    },
-    "queries": {}
-  },
-  "89efeec2-cf75-4d9f-94ed-5ae11e56dd43": {
-    "commands": {},
-    "events": {},
-    "eventSources": {},
-    "readModels": {
-      "aecba0f7-55e3-49f1-a468-fbb894441765": {
-        "generation": 1,
-        "type": "Read.Overview.Map.CaseReportsBeforeDay, Read"
       }
     },
     "queries": {}
@@ -83,23 +97,40 @@
     "events": {},
     "eventSources": {},
     "readModels": {
-      "b388b07a-2c43-424b-a09e-df0ed85acba1": {
+      "587e49f3-b75b-49b3-84b8-5c1aa36ea497": {
         "generation": 1,
         "type": "Read.DataCollectors.DataCollector, Read"
       }
     },
     "queries": {}
   },
-  "d94019a9-f7a6-4562-97f3-7689c8076821": {
+  "fd777bed-1846-4b8b-8a57-7d4b925f3370": {
     "commands": {},
-    "events": {
-      "51b2c376-ce2b-4d49-a86c-e654e50248c9": {
+    "events": {},
+    "eventSources": {},
+    "readModels": {
+      "44de3a51-a9f8-4612-8232-512682874e5b": {
         "generation": 1,
-        "type": "Events.Admin.HealthRisk.HealthRiskCreated, Events.Admin"
+        "type": "Read.CaseReports.CaseReport, Read"
+      },
+      "2cfce70e-0b87-47df-8a99-ccb61f5fbf70": {
+        "generation": 1,
+        "type": "Read.CaseReports.CaseReportsPerRegionLast7Days, Read"
+      },
+      "fab1c0a3-5f9e-45b7-82f6-6dab6f567453": {
+        "generation": 1,
+        "type": "Read.CaseReports.HealthRisksInRegionsLast7Days, Read"
+      },
+      "14e02536-5128-493e-a854-001ff491d7f5": {
+        "generation": 1,
+        "type": "Read.CaseReports.RegionWithHealthRisk, Read"
       }
     },
-    "eventSources": {},
-    "readModels": {},
-    "queries": {}
+    "queries": {
+      "38d16142-3050-4ff9-b411-8571299328ed": {
+        "generation": 1,
+        "type": "Read.CaseReports.GetCaseReportsPerRegionLast7Days, Read"
+      }
+    }
   }
 }

@@ -7,6 +7,10 @@
         "a2e90e05-4967-49e9-94e2-7eabaf411ca8": {
           "name": "CaseReports",
           "subFeatures": {}
+        },
+        "9101938c-5654-4c19-a2e8-368e7ff24c63": {
+          "name": "DataCollectors",
+          "subFeatures": {}
         }
       }
     },
@@ -42,6 +46,10 @@
     },
     "d6878b29-f1fe-45bc-93ee-2ea89e650df8": {
       "name": "DataCollectors",
+      "subFeatures": {}
+    },
+    "fd777bed-1846-4b8b-8a57-7d4b925f3370": {
+      "name": "CaseReports",
       "subFeatures": {}
     }
   }

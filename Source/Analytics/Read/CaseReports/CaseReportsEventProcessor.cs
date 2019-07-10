@@ -1,3 +1,33 @@
+/* 
+using Dolittle.Events.Processing;
+using Dolittle.ReadModels;
+using Events.Reporting.CaseReports;
+
+namespace Read.CaseReports
+{
+    public class CaseReportsEventProcessor : ICanProcessEvents
+    {
+        readonly IReadModelRepositoryFor<CaseReport> _repositoryForCaseReport;
+        readonly IReadModelRepositoryFor<CaseReportsPerRegionLast7Days> _repositoryForCaseReportsPerRegionLast7Days;
+
+        public CaseReportsEventProcessor(
+            IReadModelRepositoryFor<CaseReport> repositoryForCaseReport,            
+            IReadModelRepositoryFor<CaseReportsPerRegionLast7Days> repositoryForCaseReportsPerRegionLast7Days
+        )
+        {
+            _repositoryForCaseReport = repositoryForCaseReport;
+            _repositoryForCaseReportsPerRegionLast7Days = repositoryForCaseReportsPerRegionLast7Days;
+        }
+        
+        
+        public void Process(CaseReportReceived @event)
+        { 
+            
+        }
+        
+    }
+}
+*/
 using Dolittle.Events.Processing;
 using Events.Reporting.CaseReports;
 using Dolittle.ReadModels;
@@ -40,7 +70,8 @@ namespace Read.CaseReports
 
         
         
-       [EventProcessor("cb01aaaf-7998-4692-81ef-1ceb5ab38e12")]
+       //[EventProcessor("cb01aaaf-7998-4692-81ef-1ceb5ab38e12")]
+       [EventProcessor("fa49fe53-3ba9-ec16-0d25-15ccb7985d11")]
         public void Process(CaseReportReceived @event)
         {
             // Insert CaseReports
