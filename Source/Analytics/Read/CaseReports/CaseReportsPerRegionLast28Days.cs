@@ -9,9 +9,9 @@ using System.Collections.Generic;
 
 namespace Read.CaseReports
 {
-    public class CaseReportsPerRegionLast7Days : IReadModel
+    public class CaseReportsPerRegionLast28Days : IReadModel
     {
         public Day Id { get; set; }
-        public IList<HealthRisksInRegionsLast7Days> HealthRisks { get; set; }
+        public IList<HealthRisksInRegionsLast28Days> HealthRisks { get; set; }
     }
 }

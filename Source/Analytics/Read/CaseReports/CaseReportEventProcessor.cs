@@ -18,7 +18,7 @@ namespace Read.CaseReports
     public class CaseReportEventProcessor : ICanProcessEvents
     {
         readonly IReadModelRepositoryFor<CaseReport> _caseReportRepository;
-        readonly IReadModelRepositoryFor<CaseReportsPerRegionLast7Days> _caseReportsPerRegionLast7DaysRepository;
+        readonly IReadModelRepositoryFor<CaseReportsPerRegionLast28Days> _caseReportsPerRegionLast28DaysRepository;
         readonly IReadModelRepositoryFor<HealthRisk> _healthRisks;
         readonly IReadModelRepositoryFor<District> _districts;
         readonly IReadModelRepositoryFor<Region> _regions;
@@ -27,7 +27,7 @@ namespace Read.CaseReports
 
         public CaseReportEventProcessor(
             IReadModelRepositoryFor<CaseReport> caseReportRepository,
-            IReadModelRepositoryFor<CaseReportsPerRegionLast7Days> repository,
+            IReadModelRepositoryFor<CaseReportsPerRegionLast28Days> repository,
             IReadModelRepositoryFor<DataCollector> dataCollectors,
             IReadModelRepositoryFor<HealthRisk> healthRisks,
             IReadModelRepositoryFor<District> districts,
@@ -36,7 +36,7 @@ namespace Read.CaseReports
             )
         {
             _caseReportRepository = caseReportRepository;
-            _caseReportsPerRegionLast7DaysRepository = repository;
+            _caseReportsPerRegionLast28DaysRepository = repository;
             _healthRisks = healthRisks;
             _districts = districts;
             _regions = regions;
@@ -75,7 +75,7 @@ namespace Read.CaseReports
 
             InsertPerHealthRiskAndRegionForComing4Weeks(caseReport, healthRisk, district);
             UpdateDataCollectorLastActive(dataCollector, caseReport);
-            InsertPerHealthRiskAndRegionForDay(caseReport, healthRisk, district);
+            InsertPerHealthRiskAndRegionForComingWeek(caseReport, healthRisk, district);
         }
 
         public void UpdateDataCollectorLastActive(DataCollector dataCollector, CaseReport caseReport)
@@ -167,7 +167,7 @@ namespace Read.CaseReports
 
             for (var day = 0; day < 28; day++)
             {            
-                var dayReport = _caseReportsPerRegionLast7DaysRepository.GetById(day + today);
+                var dayReport = _caseReportsPerRegionLast28DaysRepository.GetById(day + today);
                 if (dayReport != null)
                 {
                     var healthRiskForDay = dayReport.HealthRisks.FirstOrDefault(d => d.Id == caseReport.HealthRiskId);
@@ -184,23 +184,23 @@ namespace Read.CaseReports
                     }
                     else
                     {
-                        dayReport.HealthRisks.Add(new HealthRisksInRegionsLast7Days()
+                        dayReport.HealthRisks.Add(new HealthRisksInRegionsLast28Days()
                         {
                             Id = caseReport.HealthRiskId,
                             HealthRiskName = healthRisk.Name,
                             Regions = new[] { AddRegionWithCases(region.Name, day, numCases) }
                         });
                     }
-                    _caseReportsPerRegionLast7DaysRepository.Update(dayReport);
+                    _caseReportsPerRegionLast28DaysRepository.Update(dayReport);
                 }
                 else
                 {
-                    dayReport = new CaseReportsPerRegionLast7Days()
+                    dayReport = new CaseReportsPerRegionLast28Days()
                     {
                         Id = day + today,
                         HealthRisks = new[] 
                         {
-                            new HealthRisksInRegionsLast7Days()
+                            new HealthRisksInRegionsLast28Days()
                             {
                                 Id = caseReport.HealthRiskId,
                                 HealthRiskName = healthRisk.Name,
@@ -208,7 +208,7 @@ namespace Read.CaseReports
                             }
                         }
                     };
-                    _caseReportsPerRegionLast7DaysRepository.Insert(dayReport);
+                    _caseReportsPerRegionLast28DaysRepository.Insert(dayReport);
                 }
             };
         }

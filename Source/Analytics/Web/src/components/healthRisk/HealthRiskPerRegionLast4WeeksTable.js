@@ -9,7 +9,7 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 import { QueryCoordinator } from "@dolittle/queries";
-import { CaseReportsPerRegionLast7DaysQuery } from "../../Features/CaseReports/CaseReportsPerRegionLast7DaysQuery";
+import { CaseReportsPerRegionLast28DaysQuery } from "../../Features/CaseReports/CaseReportsPerRegionLast28DaysQuery";
 
 import '../lastWeekTotals/last-week-totals.scss';
 
@@ -27,7 +27,7 @@ class HealthRiskPerRegionLast4WeeksTable extends Component {
 
     fetchData() { 
         this.queryCoordinator = new QueryCoordinator();
-        let regionsForHealthRisk = new CaseReportsPerRegionLast7DaysQuery();
+        let regionsForHealthRisk = new CaseReportsPerRegionLast28DaysQuery();
 
         this.queryCoordinator.execute(regionsForHealthRisk).then(queryResult => {
             if(queryResult.success){
